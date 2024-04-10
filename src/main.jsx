@@ -7,6 +7,7 @@ import {
 import Root from "./routes/root";
 import ErrorPage from "./error-page";
 import Contact from "./routes/contact";
+import Content from "./routes/content";
 import './index.css';
 
 const router = createBrowserRouter([
@@ -14,10 +15,16 @@ const router = createBrowserRouter([
     path: "/",
     element: <Root />,
     errorElement: <ErrorPage />,
+    children: [
+      {
+        path: "contacts/:contactId",
+        element: <Contact />,
+      },
+    ],
   },
   {
-    path: "contacts/:contactId",
-    element: <Contact />,
+    path: "content",
+    element: <Content />,
     errorElement: <ErrorPage />,
   },
 ]);
